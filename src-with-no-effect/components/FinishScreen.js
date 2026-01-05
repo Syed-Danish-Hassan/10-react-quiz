@@ -1,15 +1,10 @@
-import { useQuiz } from "../contexts/QuizContext";
-
-function FinishScreen() {
-  const { points, questionPointsObject, highScore, dispatch } = useQuiz();
-  const percentage = Math.round(
-    (points / questionPointsObject.totalPoints) * 100
-  );
+function FinishScreen({ points, totalPoints, highScore, dispatch }) {
+  const percentage = Math.round((points / totalPoints) * 100);
   return (
     <>
       <p className="result">
         You scored <strong>{points}</strong> out of{" "}
-        <strong>{questionPointsObject.totalPoints}</strong> ({percentage}%)
+        <strong>{totalPoints}</strong> ({percentage}%)
       </p>
       <p className="highscore">
         {" "}
